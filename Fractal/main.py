@@ -7,18 +7,20 @@ def setup():
     py5.background(255)
     py5.stroke(0)
     # Переменная theta нужна для того, чтобы задавать угол "излома ветвей"
-    theta = py5.radians(py5.random(80))
-    # py5.no_loop()
+    theta = py5.radians(py5.random(120))
+    #py5.no_loop()
 
 
 def draw():
     global theta
+    py5.background(255)
     py5.translate(py5.width / 2, 900)
     # Рисуем "ствол" нашего дерева
     py5.line(0, 0, 0, -220)
     # Перемещаем матрицу в верхнуюю точку "ствола"
     py5.translate(0, -220)
     # Вызываем рекурсивную функцию
+    theta -= 0.01
     branch(220)
 
 
