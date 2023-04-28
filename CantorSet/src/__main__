@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr 28 11:01:56 2023
+
+@author: evgeniy
+"""
+
+import py5
+
+
+def setup():
+    py5.size(500, 500)
+    py5.background(0)
+    py5.stroke(255)
+    py5.stroke_weight(2)
+
+
+def draw():
+    cantor(100, 100, 250)
+
+
+def cantor(x, y, cantor_len):
+    if cantor_len >= 1:
+        py5.line(x, y, x + cantor_len, y)
+        y += 30
+        cantor(x, y, cantor_len / 3)
+        cantor(x + cantor_len * 2 / 3, y, cantor_len / 3)
+
+
+py5.run_sketch()
